@@ -6,16 +6,17 @@
 
 	<div ng-controller="FirstCtrl">
 		<div class="container">
-
 			<div class="form-group">
-				<label for="exampleInputEmail1">Enter data: </label>
-				<input class="form-control" id="exampleInputEmail1" ng-model="start">
-			</div>
+				<label >Enter data:
+					<input class="form-control"  ng-model="start">
+				</label>
 
-			<div>{{myReverse()}}</div>
+			</div>
+			<div>{{start | reverseFilter}}</div>
 
 		</div>
 	</div>
+
 
 </div>
 <script src="bower_components/angular/angular.js"></script>

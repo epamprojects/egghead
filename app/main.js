@@ -1,8 +1,11 @@
 var myApp = angular.module("myApp", []);
+myApp.filter("reverseFilter", function(){
+   return function(data){
+      return data.toString().split("").reverse().join("");
+   }
+});
+
 
 myApp.controller("FirstCtrl", function ($scope) {
-   $scope.start = "start"
-   $scope.myReverse = function (){
-      return $scope.start.split("").reverse().join("");
-   }
+   $scope.start = "123";
 });
