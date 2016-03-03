@@ -6,13 +6,19 @@
 
 	<div ng-controller="FirstCtrl">
 		<div class="container">
+			<table class="table">
+				<!--filter:
+					orderBy:'-name'
+					limitTo:1
 
-			<div class="form-group">
-				<label for="exampleInputEmail1">Enter data: </label>
-				<input class="form-control" id="exampleInputEmail1" ng-model="start">
-			</div>
+					can be using together. Must be separate vertical line
+				-->
 
-			<div>{{myReverse()}}</div>
+				<tr ng-repeat="man in people | limitTo:2 | orderBy:'name'">
+					<td>{{man.name | uppercase}}</td>
+					<td>{{man.age | lowercase}}</td>
+				</tr>
+			</table>
 
 		</div>
 	</div>
