@@ -7,12 +7,29 @@
 	<div ng-controller="FirstCtrl">
 		<div class="container">
 
-			<div class="form-group">
-				<label for="exampleInputEmail1">Enter data: </label>
-				<input class="form-control" id="exampleInputEmail1" ng-model="start">
-			</div>
+			<div class="row">
+				<div ng-controller="FirstCtrl">
+					<label> Filter:
+						<input class="form-control" ng-model="search">
+					</label>
 
-			<div>{{myReverse()}}</div>
+					<table class="table table-hover">
+						<thead>
+						<tr>
+							<th>NAME</th>
+							<th>AGE</th>
+						</tr>
+						</thead>
+
+						<!--ng-filter-->
+						<tr ng-repeat="man in people | filter:search">
+							<!--filter-->
+							<td>{{man.name | UpperCase}}</td>
+							<td>{{man.age}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 
 		</div>
 	</div>
