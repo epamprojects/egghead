@@ -4,7 +4,15 @@
 </head>
 <div ng-app="myApp">
 
-	<first></first>
+	<div ng-controller="AppCtrl">
+
+		Ctrl
+		<input type="text" ng-model="ctrlFlavor">
+
+		Dir
+		<drink flavor="ctrlFlavor"></drink>
+	</div>
+
 </div>
 <script src="bower_components/angular/angular.js"></script>
 <script src="main.js"></script>

@@ -1,16 +1,20 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller("FirstCtrl", function ($scope) {
-   $scope.start = "start";
-   $scope.myReverse = function (){
-      return $scope.start.split("").reverse().join("");
-   }
+myApp.controller("AppCtrl", function ($scope) {
+    $scope.ctrlFlavor = "blackbery"
 });
 
-myApp.directive("first", function () {
-   return {
-      restrict:"AECM",
-      templateUrl:"templates/firstTmpl.html",
-      controller: "FirstCtrl"
-   }
+myApp.directive("drink", function () {
+    return {
+        restrict: "AECM",
+        templateUrl: "templates/firstTmpl.html",
+        // if using "=" directive get a data from
+        // controller the controller, wherein it is
+        // if changed scope in controller scope will be changed in directive
+        // and vice versa
+
+        scope: {
+            flavor: "="
+        }
+    }
 });
