@@ -1,16 +1,25 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller("FirstCtrl", function ($scope) {
-   $scope.start = "start";
-   $scope.myReverse = function (){
-      return $scope.start.split("").reverse().join("");
-   }
-});
 
 myApp.directive("first", function () {
    return {
       restrict:"AECM",
       templateUrl:"templates/firstTmpl.html",
-      controller: "FirstCtrl"
+      controller: function () {
+      }
+   }
+});
+
+myApp.directive("second", function () {
+   return {
+      //if don't using isolate scope model changed in one instance
+      //directory will be appear in other instance
+      scope:{
+
+      },
+      restrict:"AECM",
+      templateUrl:"templates/firstTmpl.html",
+      controller: function () {
+      }
    }
 });

@@ -4,7 +4,20 @@
 </head>
 <div ng-app="myApp">
 
-	<first></first>
+	<div class="container">
+		<!--if don't using isolate scope model changed in one instance
+	directory will be appear in other instance-->
+		<div>first directive</div>
+		<first></first>
+		<first></first>
+		<first></first>
+
+		<div>second directive</div>
+		<second></second>
+		<second></second>
+		<second></second>
+	</div>
+
 </div>
 <script src="bower_components/angular/angular.js"></script>
 <script src="main.js"></script>
