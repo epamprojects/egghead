@@ -1,16 +1,29 @@
 var myApp = angular.module("myApp", []);
 
-myApp.controller("FirstCtrl", function ($scope) {
-   $scope.start = "start";
-   $scope.myReverse = function (){
-      return $scope.start.split("").reverse().join("");
-   }
-});
 
 myApp.directive("first", function () {
    return {
-      restrict:"AECM",
+      restrict:"E",
+      scope:{},
       templateUrl:"templates/firstTmpl.html",
-      controller: "FirstCtrl"
+      // if don't set in scope wich data will be visible
+      // in directive NEEDED SET IN IN LINK
+      link: function (scope, element, attrs) {
+         scope.flavor = attrs.flavor;
+      }
    }
 });
+
+
+myApp.directive("second", function () {
+   return {
+      restrict:"E",
+      // if  set in scope wich data will be visible
+      // in directive DON'T NEEDED SET IN LINK
+      scope:{
+         flavor:"@"
+      },
+      templateUrl:"templates/firstTmpl.html"
+   }
+});
+
